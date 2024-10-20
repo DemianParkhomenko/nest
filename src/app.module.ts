@@ -6,6 +6,7 @@ import { AstrologyService } from './astrology/astrology.service';
 import { NotificationService } from './notification/notification.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { PurchasesModule } from './purchases/purchases.module';
+import { PurchaseService } from './purchases/purchases.service';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -15,6 +16,11 @@ import { UsersModule } from './users/users.module';
     PurchasesModule,
     ScheduleModule.forRoot(),
   ],
-  providers: [AnalyticsService, AstrologyService, NotificationService],
+  providers: [
+    AnalyticsService,
+    AstrologyService,
+    NotificationService,
+    PurchaseService,
+  ],
 })
 export class AppModule {}
