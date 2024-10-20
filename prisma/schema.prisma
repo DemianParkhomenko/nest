@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum Currency {
+  USD
+  UAH
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  name      String
+  birthDate DateTime
+  gender    Gender
+  purchases Purchase[]
+}
+
+model Offer {
+  id           String     @id @default(uuid())
+  name         String
+  priceInCents Int
+  currency     Currency
+  purchases    Purchase[]
+}
+
+model Purchase {
+  id                       String    @id @default(uuid())
+  userId                   String
+  offerId                  String
+  user                     User      @relation(fields: [userId], references: [id])
+  offer                    Offer     @relation(fields: [offerId], references: [id])
+  createdAt                DateTime  @default(now())
+  astrologicalReportSentAt DateTime?
+}
