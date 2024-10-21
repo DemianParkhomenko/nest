@@ -1,9 +1,9 @@
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import { PrismaService } from 'nestjs-prisma';
 import * as request from 'supertest';
 
 import { AppModule } from '../app.module';
-import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 
 describe('users', () => {

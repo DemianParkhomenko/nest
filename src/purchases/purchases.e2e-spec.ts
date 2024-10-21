@@ -1,10 +1,10 @@
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { Offer, User } from '@prisma/client';
+import { PrismaService } from 'nestjs-prisma';
 import * as request from 'supertest';
 
 import { AppModule } from '../app.module';
-import { PrismaService } from '../prisma/prisma.service';
 import { CreatePurchaseDto } from './dto/create-purchase.dto';
 
 describe('users', () => {

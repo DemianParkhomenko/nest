@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
+import { NotificationModule } from 'src/notification/notification.module';
 
-import { NotificationService } from '../notification/notification.service';
-import { PurchaseService } from '../purchases/purchases.service';
+import { AstrologyService } from './astrology.service';
 
 @Module({
-  providers: [NotificationService, PurchaseService],
+  imports: [NotificationModule, PurchasesModule],
+  providers: [AstrologyService],
 })
 export class PurchasesModule {}
